@@ -1,0 +1,148 @@
+// main: ../main.scss
+// -------------------------------------------------
+// Description: This file contains everything to do
+//              with the content.
+// -------------------------------------------------
+
+// -- Headings -- //
+h1 {}
+
+// -- Styles -- //
+body {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 1), rgba(4, 97, 159, 1));
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.body {
+  position: absolute;
+  top: 42%;
+  left: 42%;
+  width: 380px;
+  height: 160px;
+  border-radius: 0% 30% 5% 0%;
+  background-color: #758AA7;
+  box-shadow: inset -15px 3px 10px #71819A;
+
+  .eye {
+    position: absolute;
+    top: 112px;
+    right: 120px;
+    width: 15px;
+    height: 6px;
+    background-color: black;
+    border-radius: 5px;
+
+    .pupil {
+      position: relative;
+      width: 3px;
+      top: 2px;
+      left: 10px;
+      height: 2px;
+      background-color: white;
+    }
+  }
+
+  .tail {
+    position: relative;
+    right: 200px;
+    width: 200px;
+    height: 160px;
+    background-color: #758AA7;
+    border-radius: 0% 0% 0% 100%;
+    box-shadow: inset 20px 0px 10px #71819A;
+  }
+
+  .fin-container {
+    height: 4vmin;
+    width: 7vmin;
+    border-radius: 0 0 4vmin 0;
+    position: absolute;
+    left: 95px;
+    bottom: 10px;
+    overflow: hidden;
+
+    .fin {
+      background-color: #9DA6B5;
+      height: 4vmin;
+      width: 8vmin;
+      transform-origin: 100% 100%;
+      transform: rotate(15deg);
+    }
+  }
+
+  .flipper {
+    position: relative;
+    right: 325px;
+    bottom: 170px;
+    width: 135px;
+    height: 65px;
+    background-color: #687B96;
+    transform: rotate(-40deg);
+    border-radius: 0px 20vmin 0px 20vmin;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 24px;
+      right: 6px;
+      width: 135px;
+      height: 65px;
+      background-color: #758AA7;
+      border-radius: 0px 20vmin 0px 20vmin;
+      transform: rotate(-20deg);
+    }
+  }
+}
+
+.accessories {
+  .tophat-hat {
+    position: absolute;
+    top: 353px;
+    right: 882px;
+    width: 30px;
+    height: 35px;
+    background-color: black;
+  }
+  .tophat-strap {
+    position: absolute;
+    top: 383px;
+    right: 882px;
+    width: 30px;
+    height: 5px;
+    background-color: white;
+  }
+  .tophat-base {
+    position: absolute;
+    top: 388px;
+    right: 874px;
+    width: 45px;
+    height: 8px;
+    background-color: black;
+  }
+  .mustache {
+      position: relative;
+      width: 0;
+      height: 0;
+      border-top: 9px solid transparent;
+      border-right: 9px solid red;
+      transform: rotate(10deg);
+    }
+    .mustache:after {
+      content: "";
+      position: absolute;
+      border: 0 solid transparent;
+      border-top: 3px solid red;
+      border-radius: 20px 0 0 0;
+      top: -12px;
+      left: -9px;
+      width: 12px;
+      height: 12px;
+      transform: rotate(45deg);
+    }
+
+}
