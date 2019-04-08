@@ -18,10 +18,13 @@ body {
   overflow: hidden;
 }
 
-.body {
+.blue-whale {
   position: absolute;
-  top: 42%;
-  left: 42%;
+  top: 45%;
+  left: 45%;
+}
+
+.body {
   width: 380px;
   height: 160px;
   border-radius: 0% 30% 5% 0%;
@@ -58,32 +61,36 @@ body {
   }
 
   .fin-container {
-    height: 4vmin;
-    width: 7vmin;
+    height: 38px;
+    width: 66px;
     border-radius: 0 0 4vmin 0;
     position: absolute;
     left: 95px;
     bottom: 10px;
     overflow: hidden;
+    z-index: 2;
 
     .fin {
       background-color: #9DA6B5;
-      height: 4vmin;
-      width: 8vmin;
+      height: 37px;
+      width: 76px;
       transform-origin: 100% 100%;
       transform: rotate(15deg);
+      animation: fin 3s ease-in-out infinite;
     }
   }
 
   .flipper {
     position: relative;
-    right: 325px;
-    bottom: 170px;
+    right: 320px;
+    bottom: 220px;
     width: 135px;
     height: 65px;
     background-color: #687B96;
     transform: rotate(-40deg);
+    transform-origin: 100% 100%;
     border-radius: 0px 20vmin 0px 20vmin;
+    animation: flipper 5s ease-in-out infinite;
 
     &::after {
       content: "";
@@ -99,50 +106,292 @@ body {
   }
 }
 
+@keyframes flipper {
+  0% {transform: rotate(-40deg); }
+  25% {transform: rotate(-30deg);}
+  70% {transform: rotate(-30deg);}
+  100% {transform: rotate(-40deg);}
+}
+
+@keyframes fin {
+  0% {height: 37px; box-shadow: none;}
+  10% {height: 32px; box-shadow: 2px 2px 2px #62728A;}
+  70% {height: 32px; box-shadow: 2px 2px 2px #62728A;}
+  80% {height: 37px; box-shadow: none;}
+  100% {height: 37px; box-shadow: none;}
+}
+
 .accessories {
-  .tophat-hat {
-    position: absolute;
-    top: 353px;
-    right: 882px;
-    width: 30px;
-    height: 35px;
-    background-color: black;
-  }
-  .tophat-strap {
-    position: absolute;
-    top: 383px;
-    right: 882px;
-    width: 30px;
-    height: 5px;
-    background-color: white;
-  }
-  .tophat-base {
-    position: absolute;
-    top: 388px;
-    right: 874px;
-    width: 45px;
-    height: 8px;
-    background-color: black;
-  }
-  .mustache {
-      position: relative;
-      width: 0;
-      height: 0;
-      border-top: 9px solid transparent;
-      border-right: 9px solid red;
-      transform: rotate(10deg);
-    }
-    .mustache:after {
-      content: "";
-      position: absolute;
-      border: 0 solid transparent;
-      border-top: 3px solid red;
-      border-radius: 20px 0 0 0;
-      top: -12px;
-      left: -9px;
-      width: 12px;
-      height: 12px;
-      transform: rotate(45deg);
+  #tophat {
+    position: relative;
+    bottom: 205px;
+    right: 140px;
+
+    &:hover {
+      animation: shake 0.5s;
+      animation-iteration-count: infinite;
     }
 
+    .tophat-hat {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 30px;
+      height: 35px;
+      background-color: black;
+    }
+    .tophat-strap {
+      position: absolute;
+      top: 35px;
+      right: 0;
+      width: 30px;
+      height: 5px;
+      background-color: white;
+    }
+    .tophat-base {
+      position: absolute;
+      top: 40px;
+      right: -8px;
+      width: 45px;
+      height: 8px;
+      background-color: black;
+    }
+  }
+
+  .cane {
+    width: 8px;
+    z-index: 1;
+    height: 110px;
+    background: black;
+    position: absolute;
+    top: 68px;
+    left: 132px;
+    transform: rotate(60deg);
+
+    &::before {
+      content: "";
+        position: absolute;
+        top: -12px;
+        left: 0px;
+        background-color: black;
+        width: 30px;
+        height: 25px;
+        border-radius: 25px 25px 0 0;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: -3px;
+      left: 8px;
+      background-color: #758AA7;
+      border-radius: 50% 50% 0 0;
+      width: 14px;
+      height: 20px;
+    }
+  }
+
+  .monicle {
+    position: absolute;
+    bottom: 34px;
+    right: 115px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: RGB(198, 226, 227, 0.5);
+    border: 2px solid #DAA520;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 2px;
+      right: 19px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: transparent;
+      border: 2px solid #DAA520;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -40px;
+      right: 30px;
+      width: 26px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: transparent;
+      border-right: 2px dashed #DAA520;
+      transform: rotate(45deg);
+    }
+  }
+
+  #mustache {
+    position: relative;
+    bottom: 54px;
+    left: 325px;
+
+    &:hover {
+      animation: shake 0.5s;
+      animation-iteration-count: infinite;
+    }
+
+    .mustache {
+      color: #000;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      box-shadow: 20px 24px 0 0 black,  35px 24px 0 0 black;
+    }
+
+    .mustache:before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 12px;
+      width: 21px;
+      height: 12px;
+      border-radius: 0 0 0 100%;
+      border: 0 solid transparent;
+      border-bottom: 18px solid black;
+      transform-origin: right 21px;
+      transform: rotate(-40deg);
+    }
+
+    .mustache:after {
+      content: '';
+      position: absolute;
+      width: 21px;
+      height: 12px;
+      left: 44px;
+      top: 12px;
+      border-radius: 0 0 100% 0;
+      border: 0 solid transparent;
+      border-bottom: 18px solid black;
+      transform-origin: left 21px;
+      transform: rotate(40deg);
+    }
+  }
+}
+
+.lightray {
+  position: absolute;
+  transform: rotate(12deg);
+  background: #f7e6d3;
+  background: linear-gradient(to bottom, #f7e6d3 0%, rgba(4, 97, 159, 1) 35%, rgba(4, 97, 159, 1) 45%, black 100%);
+  opacity: .2;
+  animation: raymove 4s linear infinite;
+  top: -4%;
+  right: 2%;
+  width: 70px;
+  height: 100%;
+
+  &:nth-of-type(1) {
+    animation: raymove 5s linear infinite;
+    right: 0%;
+  }
+
+  &:nth-of-type(2) {
+    animation: raymove 4.2s linear infinite;
+    right: 8%;
+  }
+
+  &:nth-of-type(3) {
+    animation: raymove 3.4s linear infinite;
+    right: 15%;
+  }
+
+  &:nth-of-type(4) {
+    animation: raymove 5.2s linear infinite;
+    right: 18%;
+  }
+
+  &:nth-of-type(5) {
+    animation: raymove 3.5s linear infinite;
+    right: 28%;
+  }
+
+  &:nth-of-type(6) {
+    animation: raymove 5.5s linear infinite;
+    right: 33%;
+  }
+
+  &:nth-of-type(7) {
+    animation: raymove 4.3s linear infinite;
+    right: 42%;
+  }
+
+  &:nth-of-type(8) {
+    animation: raymove 4.7s linear infinite;
+    right: 44%;
+  }
+
+  &:nth-of-type(9) {
+    animation: raymove 3.2s linear infinite;
+    right: 54%;
+  }
+
+  &:nth-of-type(10) {
+    animation: raymove 3.8s linear infinite;
+    right: 59%;
+  }
+
+  &:nth-of-type(11) {
+    animation: raymove 4s linear infinite;
+    right: 68%;
+  }
+
+  &:nth-of-type(12) {
+    animation: raymove 4.3s linear infinite;
+    right: 70%;
+  }
+
+  &:nth-of-type(13) {
+    animation: raymove 4.7s linear infinite;
+    right: 77%;
+  }
+
+  &:nth-of-type(14) {
+    animation: raymove 3.2s linear infinite;
+    right: 86%;
+  }
+
+  &:nth-of-type(15) {
+    animation: raymove 3.8s linear infinite;
+    right: 88%;
+  }
+
+  &:nth-of-type(14) {
+    animation: raymove 4s linear infinite;
+    right: 90%;
+  }
+
+  &:nth-of-type(16) {
+    animation: raymove 5s linear infinite;
+    right: 97%;
+  }
+}
+
+@keyframes raymove {
+  0% {transform: rotate(12deg) translateX(60%); opacity:.0;}
+  50% {transform: rotate(12deg) translateX(0%); opacity:.1;}
+  100% {transform: rotate(12deg) translateX(-60%); opacity:.0;}
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
